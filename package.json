@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js -p ./public/icons"
+    "start": "node dist/index.js -p ./public/icons -o ./output.tsx"
   },
   "keywords": [],
   "author": "",
