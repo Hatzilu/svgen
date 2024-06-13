@@ -13,28 +13,21 @@ function main(): void {
     console.log(files);
     
     let typesBuf = `import { ComponentPropsWithRef } from "react"; \r\n\r\ntype Props = ComponentPropsWithRef<'svg'> & {
-        kind: 
-        `;
-    let componentBuf = `export const Icon = ({kind, ...props}: Props) {
-        switch (kind) {
-`;
+        kind:`;
+    let componentBuf = `export function Icon ({kind, ...props}: Props) {
+    switch (kind) {`;
     // writeFile("./output.tsx", )
     files.forEach(f => {
         const name = f.split('.')[0];
         const fullPath = path.join(p,f);
         const contents = readFileSync(fullPath);
-        typesBuf += `| "${name}"`;
-        componentBuf += `case "${name}": return (${contents});`;
+        typesBuf += `\r\n\t\t| "${name}"`;
+        componentBuf += `\r\n\t\tcase "${name}": return (${contents});`;
         console.log(`case "${name}": return (...);`);
         
     });
-    componentBuf += ` 
-        default: return null;
-    };
-};`
-typesBuf += `\r\n
-        }; \r\n
-    `;
+    typesBuf += "\n};\n\n"
+    componentBuf += "\r\n\t\tdefault: return null;\r\n\t};\r\n};";
     // console.log({typesBuf});
     
     writeFileSync('./output.tsx', Buffer.from(typesBuf+componentBuf, 'utf-8'));
