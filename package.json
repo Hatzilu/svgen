@@ -1,17 +1,25 @@
 {
   "name": "svgen",
+  "description": "Generate a Fully-typed, React SVG component from SVG files.",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {
-    "@types/node": "^20.14.2",
-    "@types/react": "^18.3.3",
-    "@typescript-eslint/parser": "^7.13.0",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.13.0"
+  "main": "./dist/index.js",
+  "homepage": "https://github.com/Hatzilu/svgen",
+  "keywords": ["svg", "react"],
+  "contributors": [
+    {
+      "name": "Hatzilu",
+      "url": "https://github.com/Hatzilu"
+    }
+  ],
+  "browser": false,
+  "license": "ISC",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hatzilu/svgen.git"
   },
+
+
   "type": "module",
   "bin": {
     "svgen": "./dist/index.js"
@@ -24,8 +32,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js -p ./public/icons -o ./output.tsx"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.13.0"
+  }
 }

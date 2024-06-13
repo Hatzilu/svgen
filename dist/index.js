@@ -10,7 +10,7 @@ import path from 'node:path';
 export function buildFileString(files, p) {
     var typesBuf = "import { ComponentPropsWithRef } from \"react\"; \r\n\r\ntype Props = ComponentPropsWithRef<'svg'> & {\n        kind:";
     var componentBuf = "export function Icon ({kind, ...props}: Props) {\n    switch (kind) {";
-    // writeFile("./output.tsx", )
+
     files.forEach(function (f) {
         var name = f.split('.')[0];
         var fullPath = path.join(p, f);
