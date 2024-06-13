@@ -4,10 +4,15 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from 'node:path';
 
 function main(): void {
-    const svgPath = process.argv[process.argv.findIndex(a => a === '-p')+1];
+    const svgDir = process.argv[process.argv.findIndex(a => a === '-p')+1];
+    if (!svgDir) {
+        throw new Error("No svg directory specified, use -p <path>")
+    }
     const outputPath = process.argv[process.argv.findIndex(a => a === '-o')+1];
-    
-    const p = path.resolve(svgPath);
+    if (!outputPath) {
+        throw new Error("No output specified, use -o <path>")
+    }
+    const p = path.resolve(svgDir);
 
     const files = readdirSync(p)
     
